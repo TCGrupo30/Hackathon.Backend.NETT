@@ -1,4 +1,5 @@
 using Hackathon.Backend.NETT.Core.Application.CreateVideo;
+using Hackathon.Backend.NETT.Core.Application.GetVideo;
 using Hackathon.Backend.NETT.Core.Application.UploadVideo;
 using Hackathon.Backend.NETT.Core.Infra;
 using Hackathon.Backend.NETT.Core.Infra.Repositories;
@@ -14,6 +15,7 @@ builder.Services.AddScoped<IHackathonRepository, HackathonRepository>();
 
 builder.Services.AddScoped<ICreateVideoCommand, CreateVideoCommand>();
 builder.Services.AddScoped<IUploadVideoCommand, UploadVideoCommand>();
+builder.Services.AddScoped<IGetVideoQuery, GetVideoQuery>();
 
 
 
