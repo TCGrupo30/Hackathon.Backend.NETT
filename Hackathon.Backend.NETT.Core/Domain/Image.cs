@@ -12,7 +12,7 @@ namespace Hackathon.Backend.NETT.Core.Domain
         public Guid VideoId { get; set; }
         public Video Video { get; set; }
         public string NameImage { get; set; }
-        public string PathImage { get; set; }
+        public string PathImage { get; set; } = "";
         public DateTime CreateAt { get; private set; }
     }
 }

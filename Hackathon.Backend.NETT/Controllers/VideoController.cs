@@ -24,11 +24,11 @@ namespace Hackathon.Backend.NETT.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateVideoRequest request)
         {
-            var create = await _createVideoCommand.Execute(request);
+            var create = _createVideoCommand.Execute(request);
 
-            _ = _uploadVideoCommand.Execute(new UploadVideoRequest { });
+            _ = Task.Run(() => _uploadVideoCommand.Execute(new UploadVideoRequest { }));
 
-            return Ok(create);
+            return Ok(await create);
         }
     }
 }
