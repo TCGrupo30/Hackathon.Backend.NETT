@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.Backend.NETT.Api"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Backend.NETT.Core", "Hackathon.Backend.NETT.Core\Hackathon.Backend.NETT.Core.csproj", "{D61D0E47-D3C3-4813-93BA-A8B657462FD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hackathon.Backend.NETT.Core", "Hackathon.Backend.NETT.Core\Hackathon.Backend.NETT.Core.csproj", "{D61D0E47-D3C3-4813-93BA-A8B657462FD8}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackathon.Backend.NETT.Function", "Hackathon.Backend.NETT.Function\Hackathon.Backend.NETT.Function.csproj", "{9EE6D4B8-50A2-417B-8B98-14AA06CBE286}"
 EndProject
 Global
@@ -19,6 +21,10 @@ Global
 		{0B7BC427-F7BA-461B-B835-10253A6E576D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B7BC427-F7BA-461B-B835-10253A6E576D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B7BC427-F7BA-461B-B835-10253A6E576D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D61D0E47-D3C3-4813-93BA-A8B657462FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
