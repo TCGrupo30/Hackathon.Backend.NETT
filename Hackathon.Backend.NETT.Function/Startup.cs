@@ -1,4 +1,5 @@
-﻿using Hackathon.Backend.NETT.Core.Services;
+﻿using Hackathon.Backend.NETT.Core.Infra;
+using Hackathon.Backend.NETT.Core.Services;
 using Hackathon.Backend.NETT.Core.Services.Interfaces;
 using Hackathon.Backend.NETT.Function.Services;
 using Hackathon.Backend.NETT.Function.Services.Interfaces;
@@ -14,7 +15,6 @@ public class Startup : FunctionsStartup
 {
     public override void Configure(IFunctionsHostBuilder builder)
     {
-
         builder.Services.AddSingleton<IProcessamentoVideoService, ProcessamentoVideoService>();
         builder.Services.AddSingleton<IStorageService, StorageService>();
     }

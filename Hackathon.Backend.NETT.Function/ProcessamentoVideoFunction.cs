@@ -21,7 +21,6 @@ namespace Hackathon.Backend.NETT.Function
         {
             await _processamentoService.Processar(myQueueItem);
 
-            log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
         }
     }
 }
