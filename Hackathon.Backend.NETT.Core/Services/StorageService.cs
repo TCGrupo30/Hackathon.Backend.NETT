@@ -1,7 +1,6 @@
 ﻿using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Hackathon.Backend.NETT.Core.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,13 +12,12 @@ namespace Hackathon.Backend.NETT.Core.Services
 {
     public class StorageService : IStorageService
     {
-        private readonly IConfiguration _configuration;
+
         private BlobContainerClient _container;
         private const string containerName = "blobhackanett";
-        public StorageService(IConfiguration configuration)
+        public StorageService()
         {
-            _configuration = configuration;
-            _container = new BlobContainerClient(_configuration.GetConnectionString("AzureStorageAccount"), containerName);
+            _container = new BlobContainerClient("", containerName);
         }
 
         public async Task<string> UploadFileToBlobAsync(string strFileName, Stream fileStream)
@@ -46,7 +44,7 @@ namespace Hackathon.Backend.NETT.Core.Services
         public async Task<Stream> DownloadFileBlobAsync(string fileName, string downloadFilePath)
         {
             var blobClient = _container.GetBlobClient(fileName);
-            return (await blobClient.DownloadToAsync(downloadFilePath)).ContentStream;
+            return (await blobClient.DownloadStreamingAsync()).Value.Content;
         }
 
     }

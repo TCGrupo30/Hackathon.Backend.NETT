@@ -8,5 +8,6 @@ namespace Hackathon.Backend.NETT.Core.Application.CreateVideo
 {
     public class CreateVideoResponse
     {
+        public Guid VideoId { get; set; }
     }
 }

@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Hackathon.Backend.NETT.Function.Services.Interfaces;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
 
 namespace Hackathon.Backend.NETT.Function
 {
@@ -17,7 +16,7 @@ namespace Hackathon.Backend.NETT.Function
         }
 
         [FunctionName("ProcessamentoVideo")]
-        public async Task RunAsync([ServiceBusTrigger("hackafiapnett", Connection = "ServiceBusConnection")]string myQueueItem, ILogger log)
+        public async Task RunAsync([ServiceBusTrigger("hackafiapnett", Connection = "ServiceBusConnection")]string myQueueItem)
         {
             await _processamentoService.Processar(myQueueItem);
 

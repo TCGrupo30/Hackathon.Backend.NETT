@@ -1,11 +1,11 @@
 ﻿using FFMpegCore;
 using Hackathon.Backend.NETT.Function.Services.Interfaces;
-using System.Drawing;
 using System.IO.Compression;
 using System.IO;
 using System;
 using System.Threading.Tasks;
 using Hackathon.Backend.NETT.Core.Services.Interfaces;
+using System.Drawing;
 
 namespace Hackathon.Backend.NETT.Function.Services
 {
@@ -19,10 +19,11 @@ namespace Hackathon.Backend.NETT.Function.Services
 
         public async Task Processar(string filePath)
         {
+        
+            var name = "Marvel_DOTNET_CSHARP.mp4";
+            var video = await _storage.DownloadFileBlobAsync(name, "https://hackafiapnett.blob.core.windows.net/blobhackanett/");
 
-            var video = await _storage.DownloadFileBlobAsync("teste", filePath);
-
-            var outputFolder = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\Images\";
+            var outputFolder = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\teste\Images\";
 
             Directory.CreateDirectory(outputFolder);
 
@@ -37,7 +38,7 @@ namespace Hackathon.Backend.NETT.Function.Services
                 FFMpeg.Snapshot(filePath, outputPath, new Size(1920, 1080), currentTime);
             }
 
-            string destinationZipFilePath = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\images.zip";
+            string destinationZipFilePath = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\teste\images.zip";
 
             ZipFile.CreateFromDirectory(outputFolder, destinationZipFilePath);
         }
