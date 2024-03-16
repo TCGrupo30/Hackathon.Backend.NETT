@@ -18,13 +18,11 @@ namespace Hackathon.Backend.NETT.Core.Application.CreateVideo
             {
                 CreateAt = DateTime.Now,
                 NameZip = request.FileVideo.FileName,
-                VideoId = Guid.NewGuid()
+                VideoId = Guid.NewGuid(),
+                PathZip = ""
             };
 
-
             await _hackathonRepository.InsertVideo(video);
-
-
 
             return new CreateVideoResponse() { VideoId = video.VideoId};
         }
