@@ -17,6 +17,7 @@ namespace Hackathon.Backend.NETT.Core.Infra.Configurations
             builder.Property(v => v.NameImage).HasMaxLength(100).HasColumnType("varchar");
             builder.Property(v => v.PathImage).HasMaxLength(100).HasColumnType("varchar");
             builder.Property(v => v.CreateAt).HasColumnType("Datetime");
+            builder.HasOne<Video>(v => v.Video);
         }
     }
 }

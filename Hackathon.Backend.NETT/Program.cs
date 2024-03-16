@@ -24,6 +24,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<ICreateVideoCommand, CreateVideoCommand>();
+builder.Services.AddScoped<IUploadVideoCommand, UploadVideoCommand>();
+builder.Services.AddDbContext<HackathonDbContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
