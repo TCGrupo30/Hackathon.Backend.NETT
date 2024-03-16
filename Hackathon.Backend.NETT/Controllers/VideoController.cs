@@ -36,9 +36,9 @@ namespace Hackathon.Backend.NETT.Api.Controllers
         }
 
         [HttpGet("GetAllVideos")]
-        public IActionResult GetAllVideos()
+        public async Task<IActionResult> GetAllVideos()
         {
-            return Ok(_getVideoQuery.Execute());
+            return Ok(await _getVideoQuery.Execute());
         }
     }
 }
