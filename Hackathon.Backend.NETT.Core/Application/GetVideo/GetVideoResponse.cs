@@ -10,5 +10,6 @@ namespace Hackathon.Backend.NETT.Core.Application.GetVideo
     {
         public Guid VideoId { get; set; }
         public string NameZip { get; set; }
+        public string PathZip { get; set; }
     }
 }
