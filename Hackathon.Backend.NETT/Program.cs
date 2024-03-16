@@ -1,17 +1,28 @@
 using Hackathon.Backend.NETT.Core.Application.CreateVideo;
 using Hackathon.Backend.NETT.Core.Application.UploadVideo;
+using Hackathon.Backend.NETT.Core.Infra;
+using Hackathon.Backend.NETT.Core.Infra.Repositories;
+using Hackathon.Backend.NETT.Core.Infra.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddScoped<HackathonDbContext>();
+
+builder.Services.AddScoped<IHackathonRepository, HackathonRepository>();
+
+builder.Services.AddScoped<ICreateVideoCommand, CreateVideoCommand>();
+builder.Services.AddScoped<IUploadVideoCommand, UploadVideoCommand>();
+
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ICreateVideoCommand, CreateVideoCommand>();
-builder.Services.AddScoped<IUploadVideoCommand, UploadVideoCommand>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 

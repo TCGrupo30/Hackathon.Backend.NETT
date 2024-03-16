@@ -17,6 +17,9 @@ namespace Hackathon.Backend.NETT.Core.Infra
         {
             builder.ApplyConfiguration(new VideoConfiguration());
             builder.ApplyConfiguration(new ImageConfiguration());
+
+
+            base.OnModelCreating(builder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

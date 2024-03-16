@@ -11,7 +11,7 @@ namespace Hackathon.Backend.NETT.Core.Domain
         public Guid VideoId { get; set; }
         public string NameZip { get; set; }
         public string PathZip { get; set; }
-        public DateTime CreateAt { get; private set; }
+        public DateTime CreateAt { get; set; }
         public IEnumerable<Image> Images { get; set; }
     }
 }
