@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hackathon.Backend.NETT.Core.Application.UploadVideo
 {
-    public class UploadVideoRequest()
+    public class UploadVideoRequest
     {
     }
 }
