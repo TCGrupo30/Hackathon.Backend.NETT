@@ -19,7 +19,6 @@ namespace Hackathon.Backend.NETT.Function
         public async Task RunAsync([ServiceBusTrigger("hackafiapnett", Connection = "ServiceBusConnection")]string myQueueItem)
         {
             await _processamentoService.Processar(myQueueItem);
-
         }
     }
 }

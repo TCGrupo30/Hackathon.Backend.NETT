@@ -1,5 +1,4 @@
-﻿using Hackathon.Backend.NETT.Core.Infra;
-using Hackathon.Backend.NETT.Core.Services;
+﻿using Hackathon.Backend.NETT.Core.Services;
 using Hackathon.Backend.NETT.Core.Services.Interfaces;
 using Hackathon.Backend.NETT.Function.Services;
 using Hackathon.Backend.NETT.Function.Services.Interfaces;

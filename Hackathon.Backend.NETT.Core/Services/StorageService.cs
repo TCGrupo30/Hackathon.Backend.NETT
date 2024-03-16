@@ -41,7 +41,7 @@ namespace Hackathon.Backend.NETT.Core.Services
             }
         }
 
-        public async Task<Stream> DownloadFileBlobAsync(string fileName, string downloadFilePath)
+        public async Task<Stream> DownloadFileBlobAsync(string fileName)
         {
             var blobClient = _container.GetBlobClient(fileName);
             return (await blobClient.DownloadStreamingAsync()).Value.Content;

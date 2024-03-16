@@ -4,26 +4,39 @@ using System.IO.Compression;
 using System.IO;
 using System;
 using System.Threading.Tasks;
-using Hackathon.Backend.NETT.Core.Services.Interfaces;
 using System.Drawing;
+using Hackathon.Backend.NETT.Core.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Hackathon.Backend.NETT.Core.Infra.Repositories.Interfaces;
+using Hackathon.Backend.NETT.Core.Infra.Repositories;
+using Hackathon.Backend.NETT.Core.Domain;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Hackathon.Backend.NETT.Function.Services
 {
     public class ProcessamentoVideoService : IProcessamentoVideoService
     {
+        private readonly IConfiguration _configuration;
         private readonly IStorageService _storage;
-        public ProcessamentoVideoService(IStorageService storage) 
+        private readonly IHackathonRepository _hackathonRepository;
+        private string blobPath;
+        private string outputFolder;
+        private string destinationZipFilePath;
+
+        public ProcessamentoVideoService(IStorageService storage, IConfiguration configuration, IHackathonRepository hackathonRepository) 
         {
             _storage = storage;
+            _configuration = configuration;
+            _hackathonRepository = hackathonRepository;      
         }
 
-        public async Task Processar(string filePath)
+        public async Task Processar(string fileName)
         {
-        
-            var name = "Marvel_DOTNET_CSHARP.mp4";
-            var video = await _storage.DownloadFileBlobAsync(name, "https://hackafiapnett.blob.core.windows.net/blobhackanett/");
+            blobPath = _configuration["blobUrl"];
+            outputFolder = _configuration["outputFolder"];
+            destinationZipFilePath = _configuration["destinationZipFilePath"];
 
-            var outputFolder = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\teste\Images\";
+            var video = await _storage.DownloadFileBlobAsync(fileName);
 
             Directory.CreateDirectory(outputFolder);
 
@@ -34,11 +47,11 @@ namespace Hackathon.Backend.NETT.Function.Services
 
             for (var currentTime = TimeSpan.Zero; currentTime < duration; currentTime += interval)
             {
+                var filePath = string.Concat(blobPath, fileName);
                 var outputPath = Path.Combine(outputFolder, $"frame_at_{currentTime.TotalSeconds}.jpg");
                 FFMpeg.Snapshot(filePath, outputPath, new Size(1920, 1080), currentTime);
+             
             }
-
-            string destinationZipFilePath = @"C:\Projetos\FIAP_HACK\FIAPProcessaVideo\FIAPProcessaVideo\teste\images.zip";
 
             ZipFile.CreateFromDirectory(outputFolder, destinationZipFilePath);
         }
